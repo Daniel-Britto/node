@@ -1,0 +1,11 @@
+<h1>Catálogo de Produtos</h1>
+<ul>
+        {{#each commodity}}
+            <li>
+                <p>Produto: {{this.name}}</p>
+                <p>Descrição: {{this.description}}</p>
+                <p>Valor: {{this.value}},00</p>
+                <a href="/product/{{this.id}}">Ver produto</a>
+            </li>
+        {{/each}}
+</ul>
