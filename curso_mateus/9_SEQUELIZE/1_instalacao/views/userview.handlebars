@@ -1,0 +1,15 @@
+<div class="container-view">
+    <h1>{{user.name}}</h1>
+    <div class="container-data">
+        <p><strong>Profissão:</strong> {{user.occupation}}</p>
+    </div>
+    <h4>Endereços</h4>
+    {{#each user.Addresses}}
+        <div>
+            # {{this.id}} -
+            {{this.street}} - 
+            {{this.number}} - 
+            {{this.city}}
+        </div>
+    {{/each}}
+</div>
