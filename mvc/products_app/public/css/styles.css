@@ -1,0 +1,12 @@
+.products-container li {
+    border-bottom: 1px solid black;
+}
+
+.btn {
+    display: inline;
+}
+
+.btn a {
+    color: black;
+    text-decoration: none;
+}

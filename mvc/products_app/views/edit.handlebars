@@ -1,0 +1,15 @@
+<div class="form-container">
+    <h1>{{product.name}}</h1>
+    <form action="/edit/{{product.id}}" method="POST">
+    <input type="hidden" name="id" value="{{product.id}}">
+        <div>
+            <label for="name">Nome:</label>
+            <input type="text" name="name" value="{{product.name}}">
+        </div>
+        <div>
+            <label for="price">Preço:</label>
+            <input type="text" name="price" value="{{product.price}}">
+        </div>
+        <input type="submit" value="Editar">
+    </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Produtos</h1>
+    <ul>
+        <div class="products-container">
+            {{#each product}}
+                <li>
+                    <h2>Produto: {{this.name}}</h2>
+                    <p>Valor: {{this.price}}</p>
+                    <form action="/delete/{{this.id}}" method="POST" class="btn">
+                        <input type="submit" value="Excluir">
+                    </form>
+                    <button class="btn"><a href="/edit/{{this.id}}">Editar</a></button>
+                </li>      
+            {{/each}}
+        </div>
+    </ul>
+</div>
