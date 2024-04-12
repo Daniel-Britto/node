@@ -1,5 +1,5 @@
 const User = require('../models/User')
-
+const flash = require('express-flash')
 
 module.exports = class AuthController {
 
@@ -21,7 +21,7 @@ module.exports = class AuthController {
                 return false
             }
         }
-        
+
         res.render('auth/user', { user, authPassword })
 
     }
@@ -41,6 +41,17 @@ module.exports = class AuthController {
             password
         }
 
+        const authUser = await User.findOne({ where: { email: email }})
+
+        if (password !== confirmpassword) {
+            req.flash('message', "As senha não coincidem. Tente novamente!")
+
+            res.redirect('register')
+        }   else if (authUser) {
+            req.flash('message', 'Usuário já está cadastrado. Tente outro.')
+
+            res.redirect('register')
+        }
 
         try {
             await User.create(users)

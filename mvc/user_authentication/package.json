@@ -11,9 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "connect": "^3.7.0",
     "express": "^4.19.2",
     "express-flash": "^0.0.2",
     "express-handlebars": "^7.1.2",
+    "express-session": "^1.18.0",
+    "flash": "^1.1.0",
     "mysql2": "^3.9.3",
     "nodemon": "^3.1.0",
     "sequelize": "^6.37.2"
