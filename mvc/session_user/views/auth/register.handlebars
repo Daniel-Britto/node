@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Cadastro de Usuário</h1>
+
+    <form action="/register" method="POST">
+        <div class="form-container">
+            <label for="firstname">Primeiro Nome:</label>
+            <input type="text" name="firstname" placeholder="Digite seu primeiro nome" required>
+        </div>
+        <div class="form-container">
+            <label for="lastname">Segundo Nome:</label>
+            <input type="text" name="lastname" placeholder="Digite seu segundo nome" required>
+        </div>
+        <div class="form-container">
+            <label for="age">Idade:</label>
+            <input type="date" name="age" required>
+        </div>
+        <div class="form-container">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Digite seu e-mail" required>
+        </div>
+        <div class="form-container">
+            <label for="password">Senha:</label>
+            <input type="password" name="password" placeholder="Digite sua senha" required>
+        </div>
+        <div class="form-container">
+            <label for="confirmpassword">Repetir Senha:</label>
+            <input type="password" name="confirmpassword" placeholder="digite novamente a senha" required>
+        </div>
+        <input type="submit" value="Cadastrar">
+    </form>
+</div>

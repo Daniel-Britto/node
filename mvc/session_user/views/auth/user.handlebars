@@ -1,0 +1,9 @@
+{{#if user}}
+    {{#if authPassword}}
+        <h1>Olá, {{user.firstname}}!</h1>
+    {{else}}
+        <h1>Sua senha está incorreta!</h1>
+    {{/if}}
+{{else}}
+    <h1>Usuário não encontrado!</h1>
+{{/if}}
