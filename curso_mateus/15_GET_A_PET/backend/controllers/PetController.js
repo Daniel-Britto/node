@@ -12,6 +12,8 @@ module.exports = class PetController {
 
         const available = true
 
+        const images = req.files
+
         // images upload
 
         //validations
@@ -35,6 +37,10 @@ module.exports = class PetController {
             return
         }
 
+        if(images.length === 0) {
+            res.status(422).json({ message: "A imagem é obrigatória!" })
+        }
+
         // get pet owner
         const token = getToken(req)
         const user = getUserByToken(token)
@@ -55,11 +61,39 @@ module.exports = class PetController {
             }
         })
 
+        images.map((image) => {
+            pet.images.push(image.filename)
+        })
+
         try {
             const newPet = await pet.save()
-            res.status(201).json({ message: "Pet cadastrado com sucesso!", newPet})
+            res.status(201).json({ 
+                message: "Pet cadastrado com sucesso!", 
+                newPet,
+            })
         } catch(error) {
             res.status(500).json({ message: error })
         }
+    }
+
+    static async getAll(req, res) {
+        const pets = await Pet.find().sort('-createdAt')
+
+        res.status(200).json({
+            pets: pets,
+        })
+    }
+
+    static async getAllUserPets(req, res) {
+        
+        //get user from token
+        const token = getToken(req)
+        const user = await getUserByToken(token)
+        console.log(user + 'aqui')
+        const pets = await Pet.find({ 'user._id': user._id }).sort('-createdAt')
+        
+        res.status(200).json({
+            pets,
+        })
     }
 }
