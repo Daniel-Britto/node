@@ -43,7 +43,7 @@ module.exports = class PetController {
 
         // get pet owner
         const token = getToken(req)
-        const user = getUserByToken(token)
+        const user = await getUserByToken(token)
 
         // create a pet
         const pet = new Pet({
@@ -88,6 +88,7 @@ module.exports = class PetController {
         
         //get user from token
         const token = getToken(req)
+        console.log(token)
         const user = await getUserByToken(token)
         console.log(user + 'aqui')
         const pets = await Pet.find({ 'user._id': user._id }).sort('-createdAt')
