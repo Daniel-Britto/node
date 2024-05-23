@@ -13,9 +13,10 @@ export default function useAuth() {
                 return response.data
             })
 
+            console.log(data)
         } catch(error) {
             // tratar erro
-            console.log(error)
+
         }
     }
 

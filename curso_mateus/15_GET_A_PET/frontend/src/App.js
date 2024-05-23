@@ -16,25 +16,27 @@ import { UserProvider } from './context/UserContext'
 function App() {
   return (
     <Router>
-      <NavBar />
-      <Container>
+      <UserProvider>
+        <NavBar />
+        <Container>
 
-        <Switch>
-          <Route path='/login'>
-            <Login />
-          </Route>
+          <Switch>
+            <Route path='/login'>
+              <Login />
+            </Route>
 
-          <Route path='/register'>
-            <Register />
-          </Route>
+            <Route path='/register'>
+              <Register />
+            </Route>
 
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
+            <Route path='/'>
+              <Home />
+            </Route>
+          </Switch>
 
-      </Container>
-      <Footer />
+        </Container>
+        <Footer />
+      </UserProvider>
     </Router>
   );
 }
