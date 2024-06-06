@@ -32,4 +32,21 @@ module.exports = class UserController {
     static login(req, res) {
         res.render('user/login')
     }
+
+    static async loginAuth(req, res) {
+        const {email, password} = req.params
+        let valid = true
+        const user = {
+            email,
+            password
+        }
+
+        console.log(user)
+        const userTrue = await User.findOne({where: {email: email}})
+
+        if (user.email !== userTrue.email) {
+            valid = true
+            res.redirect('user/login', {valid})
+        }
+    }
 }

@@ -1,8 +1,8 @@
-<div class="container">
+<div class="form-container">
     <h1>Cadastro</h1>
     <form action="/user/register" method="POST">
         <div class="sub-container">
-            <label for="name">Name:</label>
+            <label for="name">Nome:</label>
             <input type="text" name="name" placeholder="Digite seu nome...">
         </div>
         <div class="sub-container">
@@ -17,6 +17,7 @@
             <label for="confirmpassword">Repetir senha:</label>
             <input type="text" name="confirmpassword" placeholder="Repita sua senha...">
         </div>
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Cadastrar" class="btn">
     </form>
+    <p>Já possui uma conta? <a href="/user/login">Clique aqui!</a></p>
 </div>

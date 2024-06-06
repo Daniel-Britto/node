@@ -24,6 +24,8 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+app.use(express.static('public'))
+
 app.use('/user', UserRoutes)
 
 //app.get('/register', (req, res) => {

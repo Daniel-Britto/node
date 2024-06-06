@@ -1,6 +1,9 @@
-<div class="container">
+<div class="form-container">
     <h1>login</h1>
-    <form action="/login" method="GET">
+    {{#if valid}}
+        <p>Usuário enválido</p>
+    {{/if}}
+    <form action="/user/login" method="GET">
         <div class="sub-container">
             <label for="email">Email:</label>
             <input type="text" name='email' placeholder="Digite seu email">
@@ -10,6 +13,7 @@
             <label for="password">Senha:</label>
             <input type="text" name='password' placeholder="Digite sua senha">
         </div>
-        <input type="submit" value="Entrar">
+        <input type="submit" value="Entrar" class="btn">
     </form>
+    <p>Ainda não tem uma conta? <a href="/user/register">Clique aqui!</a></p>
 </div>
