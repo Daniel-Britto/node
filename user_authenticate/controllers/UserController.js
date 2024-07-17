@@ -28,25 +28,27 @@ module.exports = class UserController {
 
         res.redirect('../')
     }
-
+    
     static login(req, res) {
         res.render('user/login')
     }
 
-    static async loginAuth(req, res) {
-        const {email, password} = req.params
-        let valid = true
-        const user = {
-            email,
-            password
-        }
+    static async loginPost(req, res) {
+        const { email, password } = req.body
 
-        console.log(user)
-        const userTrue = await User.findOne({where: {email: email}})
+        //encontrando usuário
+        const user = await User.findOne({where: {email: email}})
 
-        if (user.email !== userTrue.email) {
-            valid = true
-            res.redirect('user/login', {valid})
+        // confimando usuário
+        if(!user) {
+            console.log('Usuário não encontrado!')
+            req.flash('message', 'Usuário não encontrado!')
+            res.render('user/login')
+            return
         }
+        console.log('Usuário encontrado!')
+        res.render('user/login')
     }
+
+    
 }

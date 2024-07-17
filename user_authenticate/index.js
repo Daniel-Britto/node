@@ -1,5 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const flash = require('express-flash')
 
 // importando banco
 const conn = require('./db/conn')
@@ -9,17 +10,25 @@ const UserRoutes = require('./routes/UserRoutes')
 
 const app = express()
 
+// receber dados do body
 app.use(
     express.urlencoded({
         extended:true
     })
 )
+
+// ativando flash message
+app.use(flash())
+
+// receber dados em json
+app.use(express.json())
+
 // configurando handlebars
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
 app.set('views', './views')
 
-//rotas
+// renderizando rotas
 app.get('/', (req, res) => {
     res.render('home')
 })
